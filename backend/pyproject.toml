@@ -1,0 +1,19 @@
+[tool.black]
+line-length = 100
+target-version = ["py312"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+
+[tool.ruff.lint.per-file-ignores]
+# SQLAlchemy relationship() type hints intentionally forward-reference sibling
+# models by string name, resolved at mapper-configuration time (see
+# app/models/__init__.py) rather than at static-analysis time.
+"app/models/*.py" = ["F821"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]

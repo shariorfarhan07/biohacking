@@ -1,0 +1,41 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    env_file:
+      - ./backend/.env
+    environment:
+      # Overrides values from backend/.env with the container-network
+      # equivalents. DATABASE_URL points SQLite at the persisted volume
+      # below instead of the ephemeral image filesystem.
+      DATABASE_URL: sqlite:////app/data/app.db
+    volumes:
+      - backend-data:/app/data
+    expose:
+      - "8000"
+    restart: unless-stopped
+    # Deliberately no `ports:` here — the backend is reachable only from
+    # other containers on this compose network (as "backend"), never from
+    # the host or the public internet. The frontend proxies browser API
+    # calls to it internally (see frontend/next.config.js rewrites).
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        # Left empty on purpose: the browser calls its own origin
+        # (/api/...), which this server forwards to the backend
+        # internally, so no backend address ever reaches the client bundle.
+        NEXT_PUBLIC_API_URL: ""
+    environment:
+      INTERNAL_API_URL: http://backend:8000
+    depends_on:
+      - backend
+    ports:
+      # The one public port for this deployment. Change the host side
+      # (left of the colon) to move it; the container always listens on 3000.
+      - "${FRONTEND_PORT:-5555}:3000"
+    restart: unless-stopped
+
+volumes:
+  backend-data:

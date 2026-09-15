@@ -1,0 +1,487 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-08T00:00:00.000Z",
+  "title": "Design System: Biohacking",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#FFFFFF",
+        "darkCanonical": "#0A0A0A",
+        "tonalRamp": ["#0C0D0F", "#1D2939", "#475467", "#98A2B3", "#D0D5DD", "#E4E7EC", "#F7F8FA", "#FFFFFF"]
+      },
+      "paper-lift": {
+        "role": "neutral",
+        "displayName": "Paper Lift",
+        "canonical": "#F7F8FA",
+        "darkCanonical": "#111111",
+        "tonalRamp": ["#101828", "#344054", "#667085", "#98A2B3", "#D0D5DD", "#E4E7EC", "#F2F4F7", "#F7F8FA"]
+      },
+      "paper-lift-hover": {
+        "role": "neutral",
+        "displayName": "Paper Lift Hover",
+        "canonical": "#F0F2F5",
+        "darkCanonical": "#1A1A1A",
+        "tonalRamp": []
+      },
+      "elevated": {
+        "role": "neutral",
+        "displayName": "Elevated",
+        "canonical": "#FFFFFF",
+        "darkCanonical": "#181818",
+        "tonalRamp": [],
+        "note": "Distinct from paper only in dark mode — the plane dialogs, popovers and the command palette sit on."
+      },
+      "ink": {
+        "role": "primary",
+        "displayName": "Console Ink",
+        "canonical": "#101828",
+        "darkCanonical": "#F5F5F5",
+        "tonalRamp": ["#101828", "#1D2939", "#344054", "#475467", "#667085", "#98A2B3", "#D0D5DD", "#E4E7EC"],
+        "note": "Inverts between themes — never build a fixed-colour scrim or brand chip from this token."
+      },
+      "rain": {
+        "role": "neutral",
+        "displayName": "Rain",
+        "canonical": "#475467",
+        "darkCanonical": "#A1A1AA",
+        "tonalRamp": ["#101828", "#1D2939", "#344054", "#475467", "#667085", "#98A2B3", "#D0D5DD", "#E4E7EC"]
+      },
+      "quiet": {
+        "role": "neutral",
+        "displayName": "Quiet",
+        "canonical": "#98A2B3",
+        "darkCanonical": "#8B8B8B",
+        "tonalRamp": ["#475467", "#667085", "#98A2B3", "#B0B7C2", "#CBD1D9", "#E4E7EC", "#F2F4F7", "#F9FAFB"],
+        "note": "Dark value fixed at #8B8B8B, measured 5.21-5.54:1 against --surface/--elevated (clears 4.5:1 AA). Do not regress to a lower-contrast gray."
+      },
+      "mist": {
+        "role": "neutral",
+        "displayName": "Mist",
+        "canonical": "#E4E7EC",
+        "darkCanonical": "rgba(255,255,255,0.08)",
+        "tonalRamp": ["#344054", "#475467", "#667085", "#98A2B3", "#D0D5DD", "#E4E7EC", "#F2F4F7", "#F9FAFB"]
+      },
+      "border-strong": {
+        "role": "neutral",
+        "displayName": "Border Strong",
+        "canonical": "#D0D5DD",
+        "darkCanonical": "rgba(255,255,255,0.14)",
+        "tonalRamp": []
+      },
+      "scrim": {
+        "role": "neutral",
+        "displayName": "Overlay Scrim",
+        "canonical": "rgba(16,24,40,0.4)",
+        "darkCanonical": "rgba(0,0,0,0.6)",
+        "tonalRamp": [],
+        "note": "Dedicated non-inverting overlay token — exists because ink flips in dark mode."
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Accent Blue",
+        "canonical": "#2563EB",
+        "darkCanonical": "#3B82F6",
+        "tonalRamp": ["#1E3A8A", "#1D4ED8", "#2563EB", "#3B82F6", "#60A5FA", "#93C5FD", "#BFDBFE", "#EFF4FF"]
+      },
+      "signal": {
+        "role": "secondary",
+        "displayName": "Signal Red",
+        "canonical": "#D92D20",
+        "darkCanonical": "#F87171",
+        "tonalRamp": ["#7A271A", "#912018", "#B42318", "#D92D20", "#F04438", "#FDA29B", "#FECDCA", "#FEF3F2"]
+      },
+      "pending": {
+        "role": "secondary",
+        "displayName": "Pending Amber",
+        "canonical": "#B54708",
+        "darkCanonical": "#FBBF24",
+        "tonalRamp": ["#7A2E0E", "#93370D", "#B54708", "#DC6803", "#F79009", "#FEC84B", "#FEDF89", "#FFFAEB"]
+      },
+      "ok": {
+        "role": "secondary",
+        "displayName": "Settled Green",
+        "canonical": "#067647",
+        "darkCanonical": "#34D399",
+        "tonalRamp": ["#054F31", "#05603A", "#067647", "#079455", "#17B26A", "#75E0A7", "#ABEFC6", "#ECFDF3"]
+      },
+      "obsidian-950": {
+        "role": "neutral",
+        "displayName": "Obsidian",
+        "canonical": "#07080A",
+        "tonalRamp": ["#07080A", "#0B0D10", "#12151A", "#1A1E25", "#232833", "#39404E", "#5B6472", "#9BA3AF"]
+      },
+      "fog-100": {
+        "role": "neutral",
+        "displayName": "Fog",
+        "canonical": "#F5F7FA",
+        "tonalRamp": ["#14171B", "#232830", "#343B45", "#474F5B", "#5B626D", "#7C8592", "#A7B0BD", "#F5F7FA"]
+      },
+      "cyan-400": {
+        "role": "primary",
+        "displayName": "Electric Cyan",
+        "canonical": "#22D3EE",
+        "tonalRamp": ["#062A31", "#0A414C", "#0D5A69", "#0E7488", "#0E8FA8", "#00C2E0", "#22D3EE", "#67E8F9"]
+      },
+      "violet-500": {
+        "role": "tertiary",
+        "displayName": "Ultraviolet",
+        "canonical": "#7C3AED",
+        "tonalRamp": ["#1C0B3B", "#2C1159", "#3E1878", "#522097", "#6729C4", "#7C3AED", "#A78BFA", "#DDD1FE"]
+      },
+      "accentblue-600": {
+        "role": "secondary",
+        "displayName": "Deep Blue",
+        "canonical": "#2563EB",
+        "tonalRamp": ["#0A1837", "#0F2454", "#153373", "#1E3A8A", "#1D4FC0", "#2563EB", "#6C9BF5", "#C3D6FD"]
+      }
+    },
+    "typographyMeta": {
+      "monument": {
+        "displayName": "Monument",
+        "purpose": "The rare page-level statement — a KPI hero number. Most pages never reach for it; it is not a giant uppercase word."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Page heads and dialog titles. Sentence case."
+      },
+      "data": {
+        "displayName": "Data",
+        "purpose": "Table cells, fact values, toast messages. Tabular numerals."
+      },
+      "prose": {
+        "displayName": "Prose",
+        "purpose": "The explanatory line under a heading; dialog descriptions. Capped at 68ch."
+      },
+      "legend": {
+        "displayName": "Legend",
+        "purpose": "Normal-case labels: section headings, column headers, nav, field labels, filter chips, command-palette results. Never letter-spaced caps."
+      },
+      "micro": {
+        "displayName": "Micro",
+        "purpose": "Field hints, errors, pagination summaries, status-pill text, kbd hints."
+      },
+      "display-customer": {
+        "displayName": "Customer Display",
+        "purpose": "Manrope headings in the obsidian customer world only."
+      },
+      "body-customer": {
+        "displayName": "Customer Body",
+        "purpose": "Inter body copy in the obsidian customer world only."
+      }
+    },
+    "shadows": [
+      {
+        "name": "storm-xs",
+        "value": "0 1px 2px rgba(16,24,40,0.05)",
+        "purpose": "Default resting lift for buttons, inputs, KPI cards, mobile roster cards."
+      },
+      {
+        "name": "storm-sm",
+        "value": "0 1px 3px rgba(16,24,40,0.1), 0 1px 2px rgba(16,24,40,0.06)",
+        "purpose": "A surface that needs to read slightly more separate than the default card."
+      },
+      {
+        "name": "storm-md",
+        "value": "0 4px 8px -2px rgba(16,24,40,0.1), 0 2px 4px -2px rgba(16,24,40,0.06)",
+        "purpose": "Toasts."
+      },
+      {
+        "name": "storm-lg",
+        "value": "0 12px 16px -4px rgba(16,24,40,0.08), 0 4px 6px -2px rgba(16,24,40,0.03)",
+        "purpose": "Dialog panel, command palette, popovers (notifications/account menu), mobile navigation drawer — the deepest lift."
+      },
+      {
+        "name": "glow-cyan",
+        "value": "0 0 0 1px rgba(34,211,238,0.15), 0 8px 40px -8px rgba(34,211,238,0.35)",
+        "purpose": "Customer world only: primary CTAs and focused accent elements on obsidian."
+      },
+      {
+        "name": "glow-violet",
+        "value": "0 0 0 1px rgba(124,58,237,0.15), 0 8px 40px -8px rgba(124,58,237,0.35)",
+        "purpose": "Customer world only: secondary accent moments."
+      },
+      {
+        "name": "panel",
+        "value": "0 4px 24px -8px rgba(0,0,0,0.5)",
+        "purpose": "Customer world only: frosted-glass panels and dropdowns."
+      }
+    ],
+    "motion": [
+      {
+        "name": "storm-ring-sweep",
+        "value": "stroke-dashoffset 700ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "The KPI ring's stroke sweeps in on mount or a real value change. Disabled under prefers-reduced-motion."
+      },
+      {
+        "name": "storm-status-crossfade",
+        "value": "storm-swap-out 130ms cubic-bezier(0.4,0,1,1) both, then storm-swap-in 220ms cubic-bezier(0.16,1,0.3,1) both",
+        "purpose": "A status pill cross-fades colour+label only on a real state change, never on mount. Disabled under prefers-reduced-motion."
+      },
+      {
+        "name": "storm-skeleton-shimmer",
+        "value": "storm-shimmer 1.6s ease-in-out infinite",
+        "purpose": "Admin loading skeletons: a soft gradient sweep across paper-lift/mist. Falls back to a flat fill under prefers-reduced-motion."
+      },
+      {
+        "name": "storm-page-in",
+        "value": "storm-page-in 220ms cubic-bezier(0.16,1,0.3,1) both",
+        "purpose": "Route content fade+6px rise, keyed by pathname in AdminShell so it fires once per navigation. The wrapper strips this class on onAnimationEnd — see the fill-mode hard rule."
+      },
+      {
+        "name": "storm-scrim-in",
+        "value": "storm-scrim-in 180ms ease-out both",
+        "purpose": "Overlay backdrop fade for dialogs, command palette, mobile drawer."
+      },
+      {
+        "name": "storm-modal-in",
+        "value": "storm-modal-in 200ms cubic-bezier(0.16,1,0.3,1) both",
+        "purpose": "Dialog/command-palette surface fade + translateY(8px)->0 + scale(0.98)->1."
+      },
+      {
+        "name": "storm-dropdown-in",
+        "value": "storm-dropdown-in 150ms cubic-bezier(0.16,1,0.3,1) both",
+        "purpose": "Popover panel entrance (notifications, account menu)."
+      },
+      {
+        "name": "storm-drawer-in",
+        "value": "storm-drawer-in 220ms cubic-bezier(0.16,1,0.3,1) both",
+        "purpose": "Mobile sidebar drawer slide-in."
+      },
+      {
+        "name": "storm-toast-in",
+        "value": "storm-toast-in 220ms cubic-bezier(0.16,1,0.3,1) both",
+        "purpose": "Toast entrance: fade + slight rise/scale."
+      },
+      {
+        "name": "storm-check-in",
+        "value": "storm-check-in 140ms cubic-bezier(0.16,1,0.3,1) both",
+        "purpose": "Roster checkbox check-in scale."
+      },
+      {
+        "name": "storm-rail-width",
+        "value": "width 200ms cubic-bezier(0.16,1,0.3,1)",
+        "purpose": "Sidebar collapse/expand. Bounded, disclosed exception to the transform/opacity-only rule — see Motion & Animation named rules.",
+        "boundedException": true
+      },
+      {
+        "name": "fade-slide-up",
+        "value": "fade-slide-up 0.6s ease-out both",
+        "purpose": "Customer world only: section entrance."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Storm Button — Solid",
+      "kind": "button",
+      "refersTo": "storm-button-solid",
+      "description": "The console's primary action: rounded, accent-filled, softly shadowed, with active:scale-[0.98] press feedback.",
+      "html": "<button class=\"ds-btn-solid\">Open the roster</button>",
+      "css": ".ds-btn-solid { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-family: Inter, system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; padding: 10px 16px; background: #2563EB; color: #FFFFFF; border: 1px solid #2563EB; border-radius: 10px; box-shadow: 0 1px 2px rgba(16,24,40,0.05); cursor: pointer; transition: background-color 150ms, border-color 150ms, transform 150ms; } .ds-btn-solid:hover { background: #1D4ED8; border-color: #1D4ED8; } .ds-btn-solid:active { transform: scale(0.98); } .ds-btn-solid:focus-visible { outline: 2px solid #2563EB; outline-offset: 2px; } .ds-btn-solid:disabled { background: #F2F4F7; color: #98A2B3; border-color: #E4E7EC; box-shadow: none; cursor: not-allowed; }"
+    },
+    {
+      "name": "Storm Button — Outline",
+      "kind": "button",
+      "refersTo": "storm-button-outline",
+      "description": "Secondary action on white with a mist border.",
+      "html": "<button class=\"ds-btn-outline\">Try again</button>",
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-family: Inter, system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; padding: 10px 16px; background: #FFFFFF; color: #101828; border: 1px solid #E4E7EC; border-radius: 10px; box-shadow: 0 1px 2px rgba(16,24,40,0.05); cursor: pointer; transition: background-color 150ms, border-color 150ms; } .ds-btn-outline:hover { background: #F7F8FA; border-color: #D0D5DD; } .ds-btn-outline:focus-visible { outline: 2px solid #2563EB; outline-offset: 2px; }"
+    },
+    {
+      "name": "Storm Button — Destructive",
+      "kind": "button",
+      "refersTo": "storm-button-destructive",
+      "description": "Signal-red text on white; hover fills the soft red tint. Destructive acts only.",
+      "html": "<button class=\"ds-btn-destructive\">Cancel membership</button>",
+      "css": ".ds-btn-destructive { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-family: Inter, system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; padding: 10px 16px; background: #FFFFFF; color: #D92D20; border: 1px solid #E4E7EC; border-radius: 10px; box-shadow: 0 1px 2px rgba(16,24,40,0.05); cursor: pointer; transition: background-color 150ms, border-color 150ms; } .ds-btn-destructive:hover { background: #FEF3F2; border-color: #D92D20; } .ds-btn-destructive:focus-visible { outline: 2px solid #2563EB; outline-offset: 2px; }"
+    },
+    {
+      "name": "Storm Field",
+      "kind": "input",
+      "refersTo": "storm-field",
+      "description": "Bordered rounded field on white, the same soft chrome as the buttons.",
+      "html": "<div class=\"ds-field\"><label class=\"ds-field-label\" for=\"ds-f1\">Customer email<span class=\"ds-field-req\">*</span></label><input class=\"ds-field-input\" id=\"ds-f1\" placeholder=\"name@example.com\" /><p class=\"ds-field-hint\">Used for the provisioning invite.</p></div>",
+      "css": ".ds-field { display: flex; flex-direction: column; gap: 6px; font-family: Inter, system-ui, sans-serif; } .ds-field-label { font-size: 0.8125rem; font-weight: 500; color: #475467; } .ds-field-req { color: #D92D20; margin-left: 4px; } .ds-field-input { width: 100%; background: #FFFFFF; border: 1px solid #E4E7EC; border-radius: 10px; box-shadow: 0 1px 2px rgba(16,24,40,0.05); padding: 8px 12px; font-family: inherit; font-size: 0.875rem; color: #101828; caret-color: #2563EB; transition: border-color 150ms; } .ds-field-input::placeholder { color: #98A2B3; } .ds-field-input:focus { border-color: #2563EB; outline: none; } .ds-field-hint { font-size: 0.75rem; line-height: 1.4; color: #98A2B3; margin: 0; }"
+    },
+    {
+      "name": "Storm State Register",
+      "kind": "custom",
+      "refersTo": "storm-state-attention",
+      "description": "Four soft-fill status pills, each with a leading dot. Colour, not ink weight, carries urgency. Identical in both themes (via CSS variables).",
+      "html": "<div class=\"ds-states\"><span class=\"ds-state ds-state-attention\">Payment failed</span><span class=\"ds-state ds-state-flight\">Provisioning</span><span class=\"ds-state ds-state-settled\">Active</span><span class=\"ds-state ds-state-spent\">Cancelled</span></div>",
+      "css": ".ds-states { display: flex; flex-wrap: wrap; gap: 8px; font-family: Inter, system-ui, sans-serif; } .ds-state { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px 3px 8px; border-radius: 999px; font-size: 0.75rem; font-weight: 600; line-height: 1.3; white-space: nowrap; } .ds-state::before { content: ''; width: 6px; height: 6px; border-radius: 999px; background: currentColor; } .ds-state-attention { color: #D92D20; background: #FEF3F2; } .ds-state-flight { color: #B54708; background: #FFFAEB; } .ds-state-settled { color: #067647; background: #ECFDF3; } .ds-state-spent { color: #98A2B3; background: #F7F8FA; text-decoration: line-through; text-decoration-color: #D0D5DD; }"
+    },
+    {
+      "name": "Storm KPI Ring",
+      "kind": "custom",
+      "refersTo": "storm-monument",
+      "description": "Circular progress indicator, the console's signature moment. Stroke sweeps in on mount or a real value change.",
+      "html": "<div class=\"ds-ring\"><svg width=\"72\" height=\"72\" viewBox=\"0 0 72 72\" style=\"transform: rotate(-90deg)\"><circle cx=\"36\" cy=\"36\" r=\"33\" fill=\"none\" stroke=\"#E4E7EC\" stroke-width=\"6\"/><circle cx=\"36\" cy=\"36\" r=\"33\" fill=\"none\" stroke=\"#067647\" stroke-width=\"6\" stroke-linecap=\"round\" stroke-dasharray=\"207\" stroke-dashoffset=\"31\" style=\"transition: stroke-dashoffset 700ms cubic-bezier(0.16,1,0.3,1)\"/></svg><span class=\"ds-ring-label\">85%</span></div>",
+      "css": ".ds-ring { position: relative; display: inline-flex; width: 72px; height: 72px; align-items: center; justify-content: center; } .ds-ring-label { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: Inter, system-ui, sans-serif; font-variant-numeric: tabular-nums; font-size: 0.875rem; font-weight: 700; color: #101828; } @media (prefers-reduced-motion: reduce) { .ds-ring circle { transition: none !important; } }"
+    },
+    {
+      "name": "Storm Roster",
+      "kind": "custom",
+      "refersTo": "storm-state-flight",
+      "description": "Hairline-ruled data table on white, tabular numerals, soft grey hover wash on rows (confirmed rendering). Now supports bulk selection and sticky per-th column headers.",
+      "html": "<table class=\"ds-roster\"><thead><tr><th>Customer</th><th>Package</th><th class=\"ds-roster-right\">State</th></tr></thead><tbody><tr><td>Owen Fairclough</td><td>Peak 12</td><td class=\"ds-roster-right\"><span class=\"ds-roster-pill ds-roster-attention\">Payment failed</span></td></tr><tr><td>Ravi Chandrasekaran</td><td>Reset 8</td><td class=\"ds-roster-right\"><span class=\"ds-roster-pill ds-roster-flight\">Provisioning</span></td></tr><tr><td>Nadia Osei</td><td>Peak 12</td><td class=\"ds-roster-right\"><span class=\"ds-roster-pill ds-roster-settled\">Active</span></td></tr></tbody></table>",
+      "css": ".ds-roster { width: 100%; border-collapse: collapse; text-align: left; font-family: Inter, system-ui, sans-serif; font-variant-numeric: tabular-nums; color: #101828; } .ds-roster thead th { position: sticky; top: 4rem; z-index: 10; background: #FFFFFF; border-bottom: 1px solid #E4E7EC; font-size: 0.8125rem; font-weight: 500; color: #475467; padding: 10px 24px 10px 0; vertical-align: bottom; } .ds-roster td { font-size: 0.875rem; line-height: 1.45; padding: 14px 24px 14px 0; vertical-align: middle; } .ds-roster th:last-child, .ds-roster td:last-child { padding-right: 0; } .ds-roster-right { text-align: right; } .ds-roster tbody tr { border-bottom: 1px solid #E4E7EC; transition: background-color 150ms; cursor: pointer; } .ds-roster tbody tr:hover { background: #F7F8FA; } .ds-roster-pill { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px 3px 8px; border-radius: 999px; font-size: 0.75rem; font-weight: 600; } .ds-roster-attention { color: #D92D20; background: #FEF3F2; } .ds-roster-flight { color: #B54708; background: #FFFAEB; } .ds-roster-settled { color: #067647; background: #ECFDF3; }"
+    },
+    {
+      "name": "Storm Filter Bar",
+      "kind": "chip",
+      "refersTo": "storm-state-settled",
+      "description": "Pill segmented control; selected reads as a soft accent fill.",
+      "html": "<div class=\"ds-filters\"><button class=\"ds-filter ds-filter-on\" aria-pressed=\"true\">All</button><button class=\"ds-filter\" aria-pressed=\"false\">Awaiting payment</button><button class=\"ds-filter\" aria-pressed=\"false\">Onboarding open</button></div>",
+      "css": ".ds-filters { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-family: Inter, system-ui, sans-serif; } .ds-filter { background: none; border: 0; border-radius: 999px; padding: 6px 12px; font-size: 0.8125rem; font-weight: 500; color: #475467; cursor: pointer; transition: background-color 150ms, color 150ms; } .ds-filter:hover { background: #F7F8FA; color: #101828; } .ds-filter:focus-visible { outline: 2px solid #2563EB; outline-offset: 2px; } .ds-filter-on { background: #EFF4FF; color: #2563EB; }"
+    },
+    {
+      "name": "Storm Sidebar Navigation",
+      "kind": "nav",
+      "refersTo": "storm-state-attention",
+      "description": "The left sidebar: iconed nav, a soft accent fill on the active item, a signal-filled count badge. Now collapsible (224px <-> 72px icon rail, persisted, tooltips when collapsed).",
+      "html": "<nav class=\"ds-rail\" aria-label=\"Admin sections\"><a class=\"ds-rail-link ds-rail-on\" href=\"#\" aria-current=\"page\">Overview</a><a class=\"ds-rail-link\" href=\"#\">Attention <span class=\"ds-rail-badge\">5</span></a><a class=\"ds-rail-link\" href=\"#\">Customers</a></nav>",
+      "css": ".ds-rail { display: flex; flex-direction: column; gap: 2px; width: 224px; padding: 16px 12px; background: #FFFFFF; border-right: 1px solid #E4E7EC; font-family: Inter, system-ui, sans-serif; transition: width 200ms cubic-bezier(0.16,1,0.3,1); } .ds-rail-link { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 8px 10px; border-radius: 10px; font-size: 0.875rem; font-weight: 500; color: #475467; text-decoration: none; transition: background-color 150ms, color 150ms; } .ds-rail-link:hover { background: #F7F8FA; color: #101828; } .ds-rail-on { background: #EFF4FF; color: #2563EB; } .ds-rail-badge { display: inline-flex; align-items: center; justify-content: center; height: 20px; min-width: 20px; padding: 0 6px; border-radius: 999px; background: #D92D20; color: #FFFFFF; font-size: 0.6875rem; font-weight: 600; }"
+    },
+    {
+      "name": "Storm Dialog",
+      "kind": "card",
+      "refersTo": "storm-dialog",
+      "description": "Rounded card on the elevated plane, lifted off a scrim-dimmed field with a real shadow — the console's deepest elevation. Entrance: scrim fade + modal fade/scale/translate.",
+      "html": "<div class=\"ds-dialog-scrim\"><div class=\"ds-dialog\" role=\"dialog\" aria-modal=\"true\"><h2 class=\"ds-dialog-title\">Cancel this membership?</h2><p class=\"ds-dialog-desc\">The customer keeps access until the end of the paid period.</p><div class=\"ds-dialog-foot\"><button class=\"ds-dialog-quiet\">Cancel</button><button class=\"ds-dialog-destructive\">Cancel membership</button></div></div></div>",
+      "css": ".ds-dialog-scrim { background: rgba(16, 24, 40, 0.4); backdrop-filter: blur(2px); padding: 24px; display: flex; align-items: center; justify-content: center; } .ds-dialog { width: 100%; max-width: 32rem; background: #FFFFFF; color: #101828; border: 1px solid #E4E7EC; border-radius: 20px; box-shadow: 0 12px 16px -4px rgba(16,24,40,0.08), 0 4px 6px -2px rgba(16,24,40,0.03); padding: 28px; font-family: Inter, system-ui, sans-serif; } .ds-dialog-title { margin: 0; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; font-size: 1.5rem; } .ds-dialog-desc { margin: 12px 0 0; max-width: 68ch; font-size: 0.875rem; line-height: 1.6; color: #475467; } .ds-dialog-foot { margin-top: 32px; display: flex; justify-content: flex-end; gap: 12px; } .ds-dialog-quiet, .ds-dialog-destructive { font-family: inherit; font-size: 0.875rem; font-weight: 500; padding: 10px 16px; border-radius: 10px; cursor: pointer; transition: background-color 150ms, color 150ms, border-color 150ms; } .ds-dialog-quiet { color: #475467; background: transparent; border: 1px solid transparent; } .ds-dialog-quiet:hover { background: #F7F8FA; color: #101828; } .ds-dialog-destructive { color: #D92D20; background: #FFFFFF; border: 1px solid #E4E7EC; } .ds-dialog-destructive:hover { background: #FEF3F2; border-color: #D92D20; }"
+    },
+    {
+      "name": "Storm Toast",
+      "kind": "custom",
+      "refersTo": "storm-toast",
+      "description": "Rounded soft-fill notification bar: ok-tinted for success, signal-tinted for error. Now has a fade+rise entrance.",
+      "html": "<div class=\"ds-toasts\"><div class=\"ds-toast ds-toast-success\" role=\"status\"><p class=\"ds-toast-msg\">Membership provisioned.</p></div><div class=\"ds-toast ds-toast-error\" role=\"status\"><p class=\"ds-toast-msg\">We couldn't reach the server.</p></div></div>",
+      "css": ".ds-toasts { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; font-family: Inter, system-ui, sans-serif; } .ds-toast { display: flex; align-items: flex-start; gap: 12px; width: 100%; max-width: 24rem; padding: 16px; border-radius: 14px; box-shadow: 0 4px 8px -2px rgba(16,24,40,0.1), 0 2px 4px -2px rgba(16,24,40,0.06); border: 1px solid; } .ds-toast-success { background: #ECFDF3; border-color: rgba(6,118,71,0.2); } .ds-toast-error { background: #FEF3F2; border-color: rgba(217,45,32,0.2); } .ds-toast-msg { margin: 0; flex: 1; font-size: 0.875rem; line-height: 1.45; font-weight: 500; color: #101828; }"
+    },
+    {
+      "name": "Storm Theme Switch",
+      "kind": "custom",
+      "refersTo": "storm-button-quiet",
+      "description": "Three-way light/system/dark radiogroup; active option is a paper-filled, shadow-lifted chip on a paper-lift track. Persists to localStorage, no-FOUC via a blocking init script.",
+      "html": "<div class=\"ds-theme\" role=\"radiogroup\" aria-label=\"Theme\"><button role=\"radio\" aria-checked=\"true\" class=\"ds-theme-opt ds-theme-on\">Light</button><button role=\"radio\" aria-checked=\"false\" class=\"ds-theme-opt\">System</button><button role=\"radio\" aria-checked=\"false\" class=\"ds-theme-opt\">Dark</button></div>",
+      "css": ".ds-theme { display: inline-flex; align-items: center; gap: 2px; border-radius: 10px; border: 1px solid #E4E7EC; background: #F7F8FA; padding: 2px; } .ds-theme-opt { height: 24px; width: 28px; border-radius: 6px; color: #98A2B3; } .ds-theme-opt:hover { color: #101828; } .ds-theme-on { background: #FFFFFF; color: #101828; box-shadow: 0 1px 2px rgba(16,24,40,0.05); }"
+    },
+    {
+      "name": "Storm Command Palette",
+      "kind": "custom",
+      "refersTo": "storm-dialog",
+      "description": "Cmd/Ctrl+K quick-jump over nav sections plus a customer-search jump result. Centred, elevated-plane, storm-lg shadow, scrim backdrop, arrow-key + Enter navigation.",
+      "html": "<div class=\"ds-palette-scrim\"><div class=\"ds-palette\" role=\"dialog\" aria-modal=\"true\"><input class=\"ds-palette-input\" placeholder=\"Jump to a section or search customers…\" /><ul role=\"listbox\"><li role=\"option\" aria-selected=\"true\" class=\"ds-palette-row ds-palette-row-active\">Customers</li><li role=\"option\" class=\"ds-palette-row\">Packages</li></ul></div></div>",
+      "css": ".ds-palette-scrim { background: rgba(16,24,40,0.4); backdrop-filter: blur(2px); } .ds-palette { width: 100%; max-width: 32rem; background: #FFFFFF; border: 1px solid #E4E7EC; border-radius: 20px; box-shadow: 0 12px 16px -4px rgba(16,24,40,0.08), 0 4px 6px -2px rgba(16,24,40,0.03); overflow: hidden; } .ds-palette-input { width: 100%; border-bottom: 1px solid #E4E7EC; padding: 12px 16px; font-size: 0.875rem; outline: none; } .ds-palette-row { padding: 10px 12px; border-radius: 10px; font-size: 0.875rem; color: #101828; } .ds-palette-row-active { background: #EFF4FF; color: #2563EB; }"
+    },
+    {
+      "name": "Storm Popover",
+      "kind": "custom",
+      "refersTo": "storm-dialog",
+      "description": "Generic trigger+floating-panel primitive powering the notifications bell and account menu. Elevated plane, storm-lg shadow, closes on outside click/Escape/route change with focus return.",
+      "html": "<div class=\"ds-popover\"><button aria-expanded=\"true\">Notifications</button><div class=\"ds-popover-panel\"><p>Needs attention</p></div></div>",
+      "css": ".ds-popover { position: relative; } .ds-popover-panel { position: absolute; top: 100%; right: 0; margin-top: 8px; background: #FFFFFF; border: 1px solid #E4E7EC; border-radius: 14px; box-shadow: 0 12px 16px -4px rgba(16,24,40,0.08), 0 4px 6px -2px rgba(16,24,40,0.03); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Framer Product Console (admin) over The Obsidian Room (customer)",
+    "overview": "This project ships two distinct visual worlds, and they are not variants of each other. They share a Tailwind config and nothing else. The customer-facing world is a premium dark room, unchanged and out of scope for both admin passes. The admin world, \"Framer Product Console,\" replaced the prior \"Alphabet Storm\" ink-ledger system outright in an earlier pass; this second, EXTEND/HARDEN pass took that white-ground console and hardened it into a modern, premium, production-grade SaaS dashboard (Linear/Vercel/Stripe/Raycast register): first-class light/dark theming via CSS custom properties (not per-component dark: variants), a command palette, a notifications popover, a collapsible sidebar, bulk row selection with client-side CSV export, sticky table headers, and a small disclosed animation system, all layered on the existing one-accent-blue, soft-fill-status, rounded-and-shadowed system without discarding it.",
+    "keyCharacteristics": [
+      "Two scoped worlds; .storm (rooted at #storm-root) is the hard boundary and nothing crosses it.",
+      "Admin light: white ground (#FFFFFF) with soft-gray surfaces (#F7F8FA), ink text (#101828), one accent blue (#2563EB), one family (Inter). Admin dark: measured, non-inverted hierarchy (#0A0A0A ground, #111111 surface, #181818 elevated), lifted status hues, translucent-white hairlines.",
+      "Status is carried by colour again, as small soft-fill pills with a leading dot — four families (attention / flight / settled / spent) — identical in both themes.",
+      "Every surface — card, button, dialog, toast, popover — carries a soft, multi-layer wash shadow; nothing in this world sits flat.",
+      "Corners are consistently rounded (rounded-md controls, rounded-xl cards/dialogs/popovers); there is no zero-radius override anywhere in .storm.",
+      "A small, disclosed animation system (page transitions, overlay entrances, checkbox check-in, sidebar width) governed by one hard rule: strip fill-mode animation classes on completion for persistent wrapper elements, or fixed-position descendants silently break."
+    ],
+    "rules": [
+      {
+        "name": "The One Accent Rule",
+        "body": "accent is the only colour in the admin world with no status meaning. It marks \"you can act here\" — buttons, links, active nav, focus, the command palette's highlighted row. It never appears as a KPI number, a status pill, or a decorative fill.",
+        "section": "colors"
+      },
+      {
+        "name": "The Soft-Fill Status Rule",
+        "body": "Status returns to colour in this world: attention/flight/settled/spent each get a fixed hue pair, applied identically everywhere a status appears — pills, badges, KPI numbers, toasts, in both themes. A status rendered only in grey, or in a colour outside its assigned family, is a bug.",
+        "section": "colors"
+      },
+      {
+        "name": "The Always-Elevated Rule",
+        "body": "Every rounded surface in .storm carries a soft washed shadow. Nothing in this world sits flat.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Ink-Inverts Rule",
+        "body": "ink flips between near-black (light) and near-white (dark). Overlays must use the dedicated scrim token, not ink; fixed-colour brand chips must use accent, not ink. Fixed twice this pass: the dialog/palette/drawer scrim, and the login wordmark badge.",
+        "section": "colors"
+      },
+      {
+        "name": "The Measured Minimum-Contrast Rule",
+        "body": "quiet's dark value is fixed at #8B8B8B, empirically measured to clear 4.5:1 AA against both --surface and --elevated. Do not regress it to a lower-contrast gray for a quieter look.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Family Rule",
+        "body": "Inter carries the entire admin surface, body through label, in both themes. A second family in .storm is a defect.",
+        "section": "typography"
+      },
+      {
+        "name": "The Normal-Case Rule",
+        "body": "No admin type role uses uppercase or heavy letter-spacing, except the pre-existing sidebar nav-group label (a structural section marker for a group of links, not a content kicker). Do not extend that exception to new contexts.",
+        "section": "typography"
+      },
+      {
+        "name": "The No-Absent-Shadow Rule",
+        "body": "Every card-, button-, dialog- or popover-shaped surface in .storm carries a shadow token; disabled controls are the one exception (shadow-none).",
+        "section": "elevation"
+      },
+      {
+        "name": "The Sticky-Header Placement Rule",
+        "body": "Sticky positioning and borders on a table header go on individual th elements, not thead — border-collapse makes thead-level sticky/borders unreliable cross-browser.",
+        "section": "components"
+      },
+      {
+        "name": "The Strip-The-Fill-Mode-Class Rule",
+        "body": "Any one-shot entrance animation using animation-fill-mode both/forwards on a persistent, keyed wrapper element must strip its animation class on completion (onAnimationEnd or equivalent), or the resolved transform left behind silently becomes a containing block for position:fixed descendants, breaking every non-portaled dialog/popover inside it. AdminShell's storm-page-in wrapper is the reference implementation.",
+        "section": "motion"
+      },
+      {
+        "name": "The Bounded Layout-Animation Exception",
+        "body": "The sidebar's width transition is the one sanctioned exception to transform/opacity-only animation in .storm: it is the literal collapsible-sidebar feature, scoped to one fixed-position element, user-triggered only, mitigated with will-change and disabled under reduced motion. Not precedent for animating layout properties elsewhere.",
+        "section": "motion"
+      },
+      {
+        "name": "The One System, Two Planes Rule",
+        "body": "Dark mode is the same Tailwind colour-key names resolving to different CSS-variable values, never a per-component dark: variant. New admin components must use the Tailwind colour keys, not literal hex values or dark: prefixes.",
+        "section": "dark-mode"
+      }
+    ],
+    "dos": [
+      "Do keep every admin style inside the .storm scope (rooted at #storm-root), and re-check any new global h1..h4 rule in globals.css against the storm heading reclaim.",
+      "Do reach for the Tailwind colour keys (bg-paper-lift, text-rain, border-mist, bg-elevated, bg-scrim, ...) for anything that must repaint correctly in dark mode.",
+      "Do use scrim (never ink) for overlays, and accent (never ink) for fixed-colour brand chips.",
+      "Do carry status with the four-family soft-fill pill system, applied identically to pills, badges, KPI numbers and toasts, in both themes.",
+      "Do give every rounded surface a shadow token (storm-xs at minimum) — nothing in this world sits flat.",
+      "Do strip a persistent wrapper's fill-mode animation class on onAnimationEnd if it uses both/forwards on a transform-based keyframe.",
+      "Do use tabular numerals on every count, price and date so columns align.",
+      "Do give every roster a designed sub-lg record-card list rather than letting a table scroll sideways.",
+      "Do put sticky positioning and borders on individual th elements, not thead, for any sticky table header."
+    ],
+    "donts": [
+      "Don't reintroduce the discarded ledger system's vocabulary into .storm: no zero-radius overrides, no letter-spaced caps kickers or eyebrows outside the existing sidebar group-label exception, no ink-weight-only status, no giant uppercase monument word.",
+      "Don't let a hue outside a status pill's assigned family stand in for that status.",
+      "Don't animate a status pill on mount — the cross-fade belongs to an actual state change, not to page load.",
+      "Don't carry customer-world material (glow shadows, frosted glass, cyan, Manrope) into the admin world, or Framer Product Console material into the customer world.",
+      "Don't make whole-row click the only path to a record; the row link stays the keyboard and screen-reader target.",
+      "Don't animate width/height/top/left in .storm outside the one sanctioned, bounded sidebar exception — everything else is transform/opacity.",
+      "Don't regress quiet's dark-mode value below #8B8B8B; it was set there to clear WCAG AA contrast and carries real text."
+    ]
+  }
+}

@@ -1,0 +1,516 @@
+/*
+ * Framer Product Console — the admin panel's visual world.
+ *
+ * Replaces "Alphabet Storm" (ink-on-paper ledger) outright. Everything stays
+ * scoped under .storm so it can never leak into the customer-facing dark
+ * world. White ground, soft-gray surfaces, one accent blue, and status
+ * carried by colour again — the vocabulary of daily-use SaaS software rather
+ * than a printed field report.
+ */
+
+.storm {
+  --paper: #ffffff;
+  --paper-rgb: 255 255 255;
+  --surface: #f7f8fa;
+  --surface-hover: #f0f2f5;
+  --elevated: #ffffff;
+  --border: #e4e7ec;
+  --border-strong: #d0d5dd;
+  --ink: #101828;
+  --ink-secondary: #475467;
+  --ink-muted: #98a2b3;
+  --accent: #2563eb;
+  --accent-rgb: 37 99 235;
+  --accent-hover: #1d4ed8;
+  --accent-soft: #eff4ff;
+  --ok: #067647;
+  --ok-rgb: 6 118 71;
+  --ok-soft: #ecfdf3;
+  --pending: #b54708;
+  --pending-soft: #fffaeb;
+  --signal: #d92d20;
+  --signal-rgb: 217 45 32;
+  --signal-soft: #fef3f2;
+  --overlay-scrim: rgba(16, 24, 40, 0.4);
+
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-storm), system-ui, sans-serif;
+  font-feature-settings: "tnum" 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+/*
+ * Dark mode is not an invert — it is its own measured hierarchy, deliberately
+ * lower-contrast at the edges than the light world's crisp hairlines. Ground,
+ * surface and elevated-surface each read as a distinct plane; accent, signal,
+ * pending and ok are all lifted a step so they stay legible without glowing.
+ */
+.storm.dark {
+  --paper: #0a0a0a;
+  --paper-rgb: 10 10 10;
+  --surface: #111111;
+  --surface-hover: #1a1a1a;
+  --elevated: #181818;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
+  --ink: #f5f5f5;
+  --ink-secondary: #a1a1aa;
+  /* #8b8b8b, not the visually-tempting darker mid-gray: ink-muted carries
+     real text (hints, placeholders, "Not recorded" values), and needs to
+     clear 4.5:1 against both --surface and --elevated, not just read as
+     "quiet" at a glance. */
+  --ink-muted: #8b8b8b;
+  --accent: #3b82f6;
+  --accent-rgb: 59 130 246;
+  --accent-hover: #60a5fa;
+  --accent-soft: rgba(59, 130, 246, 0.14);
+  --ok: #34d399;
+  --ok-rgb: 52 211 153;
+  --ok-soft: rgba(52, 211, 153, 0.12);
+  --pending: #fbbf24;
+  --pending-soft: rgba(251, 191, 36, 0.12);
+  --signal: #f87171;
+  --signal-rgb: 248 113 113;
+  --signal-soft: rgba(248, 113, 113, 0.12);
+  --overlay-scrim: rgba(0, 0, 0, 0.6);
+}
+
+/*
+ * Theme changes are a quiet cut, not a flourish. The ThemeProvider stamps
+ * this class on the root for ~180ms around a light/dark/system switch only —
+ * never a permanent blanket transition, which would fight every component's
+ * own hover/focus timing and cost a paint on every element for the whole
+ * session. Colour-only, brief, and left on even under reduced motion since
+ * it softens a repaint rather than adding movement.
+ */
+.storm.theme-transitioning,
+.storm.theme-transitioning * {
+  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease,
+    fill 180ms ease, stroke 180ms ease !important;
+}
+
+/*
+ * The customer-facing world sets `h1..h4 { font-display, text-fog-100 }` globally
+ * for its dark ground. On white that renders headings in the wrong family and
+ * the wrong colour, so the storm scope takes its headings back.
+ */
+.storm h1,
+.storm h2,
+.storm h3,
+.storm h4,
+.storm h5,
+.storm h6 {
+  font-family: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+}
+
+/* --- Browser surfaces -------------------------------------------------
+   The parts we did not draw still belong to the design: selection, caret,
+   scrollbars and focus rings all ship themed rather than as browser defaults. */
+
+.storm ::selection {
+  background: rgba(37, 99, 235, 0.18);
+  color: var(--ink);
+}
+
+.storm input,
+.storm textarea {
+  caret-color: var(--accent);
+}
+
+.storm *:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.storm * {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
+}
+
+.storm *::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.storm *::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.storm *::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border: 3px solid var(--paper);
+  border-radius: 999px;
+}
+
+.storm *::-webkit-scrollbar-thumb:hover {
+  background: var(--ink-muted);
+}
+
+/* Numerals in data always align in columns. */
+.storm table,
+.storm .tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Type -------------------------------------------------------------
+   One family (Inter), normal case throughout — the register real product
+   UI reads all day, not a printed field report's uppercase caps. */
+
+/* Reserved for the rare page-level statement (KPI hero number, a splash
+   condition word); most pages never reach for it. Capped at the craft
+   floor's 6rem ceiling. */
+.storm-monument {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  text-wrap: balance;
+}
+
+.storm-title {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  font-size: clamp(1.375rem, 2.2vw, 1.625rem);
+  text-wrap: balance;
+}
+
+/* Section headings, column headers, nav items, field labels. Small, calm,
+   normal case — a label, never a shout. */
+.storm-legend {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.3;
+}
+
+.storm-micro {
+  font-size: 0.75rem;
+  letter-spacing: 0;
+  line-height: 1.4;
+}
+
+.storm-data {
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+
+.storm-prose {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  max-width: 68ch;
+}
+
+/* --- State register -----------------------------------------------------
+   Status is a soft-fill pill: a small dot plus a coloured word on its own
+   tint. Four families cover every register in StormState.tsx. */
+
+.storm-state {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.1875rem 0.625rem 0.1875rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+.storm-state::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  flex-shrink: 0;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+/* Needs a human now. */
+.storm-state--attention {
+  color: var(--signal);
+  background: var(--signal-soft);
+}
+
+/* Moving through the pipeline under its own power. */
+.storm-state--flight {
+  color: var(--pending);
+  background: var(--pending-soft);
+}
+
+/* Arrived and asks for nothing. */
+.storm-state--settled {
+  color: var(--ok);
+  background: var(--ok-soft);
+}
+
+/* Out of the field: cancelled, refunded. Neutral, not alarmed. */
+.storm-state--spent {
+  color: var(--ink-muted);
+  background: var(--surface);
+  text-decoration: line-through;
+  text-decoration-color: var(--border-strong);
+  text-decoration-thickness: 1px;
+}
+
+/* --- Motion -------------------------------------------------------------
+   One authored moment: a status pill does not swap in place, it crossfades
+   through a soft scale. It never fires on mount, only on a real change. */
+
+@keyframes storm-swap-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+}
+
+@keyframes storm-swap-in {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.storm-swap[data-phase="out"] {
+  animation: storm-swap-out 130ms cubic-bezier(0.4, 0, 1, 1) both;
+}
+
+.storm-swap[data-phase="in"] {
+  animation: storm-swap-in 220ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .storm-swap[data-phase] {
+    animation: none !important;
+  }
+}
+
+/* The KPI ring's stroke sweeps in once on load or a real value change. */
+.storm-ring-arc {
+  transition: stroke-dashoffset 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .storm-ring-arc {
+    transition: none;
+  }
+}
+
+/* Loading skeletons: the world's own material now permits a shimmer — real
+   software waits like this, and a static grey block reads as broken. */
+@keyframes storm-shimmer {
+  0% {
+    background-position: -300% 0;
+  }
+  100% {
+    background-position: 300% 0;
+  }
+}
+
+.storm-skeleton {
+  background-image: linear-gradient(
+    90deg,
+    var(--surface) 25%,
+    var(--border) 37%,
+    var(--surface) 63%
+  );
+  background-size: 400% 100%;
+  animation: storm-shimmer 1.6s ease-in-out infinite;
+  border-radius: 8px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .storm-skeleton {
+    animation: none;
+    background-image: none;
+    background-color: var(--surface);
+  }
+}
+
+/* --- Overlay motion -------------------------------------------------------
+   Dialogs, dropdowns and the mobile drawer share one grammar: the scrim
+   fades, the surface itself fades with a small translate/scale toward its
+   resting place. Transform and opacity only — GPU-cheap, no layout cost. */
+
+@keyframes storm-scrim-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes storm-modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes storm-dropdown-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes storm-drawer-in {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.storm-scrim-in {
+  animation: storm-scrim-in 180ms ease-out both;
+}
+
+.storm-modal-in {
+  animation: storm-modal-in 200ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.storm-dropdown-in {
+  animation: storm-dropdown-in 150ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.storm-drawer-in {
+  animation: storm-drawer-in 220ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .storm-scrim-in,
+  .storm-modal-in,
+  .storm-dropdown-in,
+  .storm-drawer-in {
+    animation: none !important;
+  }
+}
+
+/* --- Toast motion -------------------------------------------------------- */
+
+@keyframes storm-toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.storm-toast-in {
+  animation: storm-toast-in 220ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .storm-toast-in {
+    animation: none !important;
+  }
+}
+
+/* --- Sidebar collapse ---------------------------------------------------
+   The one place this scope animates a layout property rather than transform/
+   opacity: the rail's own width, so the icon-only and labelled states are a
+   genuine reflow, not a clipped illusion. Bounded to a single fixed-position
+   element, short (200ms), and only ever on a deliberate click — never
+   continuous or scroll-linked — so the browser is hinted ahead of time
+   rather than caching mid-transition. */
+
+.storm-rail {
+  transition: width 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: width;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .storm-rail {
+    transition: none;
+    will-change: auto;
+  }
+}
+
+/* --- Page transition ----------------------------------------------------
+   A route change fades the page content in with a slight lift — keyed by
+   pathname in AdminShell, so it fires once per navigation, never on state
+   updates within a page. */
+
+@keyframes storm-page-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.storm-page-in {
+  animation: storm-page-in 220ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .storm-page-in {
+    animation: none;
+  }
+}
+
+/* --- Checkbox / switch check-in ------------------------------------------ */
+
+@keyframes storm-check-in {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.storm-check-in {
+  animation: storm-check-in 140ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .storm-check-in {
+    animation: none;
+  }
+}
+
+.storm-switch {
+  transition: background-color 150ms ease;
+}
+
+.storm-switch-thumb {
+  transition: transform 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .storm-switch,
+  .storm-switch-thumb {
+    transition: none;
+  }
+}

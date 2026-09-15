@@ -1,0 +1,15 @@
+{
+	email {$ACME_EMAIL}
+}
+
+# Customer-facing site (marketing, auth, onboarding, dashboard).
+{$APP_DOMAIN} {
+	reverse_proxy frontend:3000
+}
+
+# Backend API + admin panel origin. Kept on its own subdomain, same
+# registrable domain as APP_DOMAIN, so the SameSite=Lax session cookies set
+# by the backend still travel on same-site fetches from the frontend.
+{$API_DOMAIN} {
+	reverse_proxy backend:8000
+}
